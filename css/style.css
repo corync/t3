@@ -1,10 +1,19 @@
 
 h1{
-    color: blue
+    color: rgb(0, 0, 0)
 }
 
+#main-message{
+    color:rgb(0, 0, 0);
+}
 
-div{
+#flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 432px;
+}
+
+.square {
     height:140px;
     width: 140px;
     border: 2px solid black;
