@@ -1,19 +1,21 @@
 /*----- constants -----*/
+
+
 /*----- app's state (variables) -----*/
 
 let board;
-let turn = 'X'
+let turn = 'X';
+let win; 
 
 /*----- cached element references -----*/
 
 const squares = Array.from(document.querySelectorAll('#board div'));
 
+const messages = document.querySelector('h2');
+
 /*----- event listeners -----*/
 
 document.getElementById('board').addEventListener('click', handleTurn);
-
-
-const messages = document.querySelector('h2');
 
 /*----- functions -----*/
 
@@ -58,8 +60,13 @@ function handleTurn(event) {
             turn = turn === 'X' ? 'O' : 'X'; 
 
             // short hand for if statement 
+            win = board[0] && board[0] === board[1] && board[0] === board[2] ? board[0] : null;
 
+            
             render();
+            console.log(win);
 
             };
 
+           
+            
