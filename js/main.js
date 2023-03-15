@@ -27,6 +27,8 @@ const messages = document.querySelector('h2');
 
 document.getElementById('board').addEventListener('click', handleTurn);
 
+document.getElementById('reset-button').addEventListener('click', init);
+
 /*----- functions -----*/
 
 function init() {
@@ -51,9 +53,9 @@ function render() {
         });
 
         // changes message to let user know who's turn it is or who won
-        messages.textContent = win === 'T' ? `That's a tie! Play again!` : 
-                            win ? `${win} wins the game!` : 
-                            `It's ${turn}'s turn!`;
+        messages.textContent = win === 'T' ? `That's a tie! Play again!` : // if win = T "tie", tie message
+                            win ? `${win} wins the game!` : // else if win is another letter, winner wins message
+                            `It's ${turn}'s turn!`; // else it is the turn's turn 
         };
 
 function handleTurn(event) {
