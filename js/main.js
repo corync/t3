@@ -45,6 +45,15 @@ function handleTurn(event) {
             // check your console logs to make sure it's working!
             console.log(board);
 
+            // ternary structure 
+            // <condition> ? <if condition is true, this> : <else if condition is false, this>
+            // set turn based on structure 
+
+            turn = turn === 'X' ? 'O' : 'X'; 
+
+            // short hand for if statement 
+
+            render();
 
             };
 
