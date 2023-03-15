@@ -22,6 +22,10 @@ h1{
 
 }
 
+#number-of-wins{
+    flex-direction: column;
+}
+
 .flex-container {
     display: flex;
     justify-content: center;
@@ -53,5 +57,5 @@ h1{
     border: 1px solid black;
     height: 55px;
     width: 100px;
-    margin: 10px;
+    margin: 15px;
     }

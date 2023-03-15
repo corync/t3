@@ -16,12 +16,17 @@ const winningCombos = [
 let board;
 let turn = 'X';
 let win; 
+let winner;
+let xWins = 0;
+let oWins = 0;
 
 /*----- cached element references -----*/
 
 const squares = Array.from(document.querySelectorAll('#board div'));
 
 const messages = document.querySelector('h2');
+
+const numberWins = document.querySelector('h3');
 
 /*----- event listeners -----*/
 
@@ -37,6 +42,9 @@ function init() {
     '', '', '',
     '', '', ''
     ];
+
+    win = null;
+    winner = null;
 
     render();
 
@@ -56,6 +64,17 @@ function render() {
         messages.textContent = win === 'T' ? `That's a tie! Play again!` : // if win = T "tie", tie message
                             win ? `${win} wins the game!` : // else if win is another letter, winner wins message
                             `It's ${turn}'s turn!`; // else it is the turn's turn 
+
+
+        // save number of each players wins
+        //if (winner === 'X' && win != null)
+        //{xWins++;}
+        //else if (winner === 'O' && win != null)
+        //{oWins++; }
+
+        win != null && winner === 'X' ? xWins++ : winner === 'O'? oWins++ : oWins; 
+        
+        numberWins.textContent = `Number of X Wins: ${xWins} | Number of O Wins: ${oWins}`;
         };
 
 function handleTurn(event) {
@@ -64,7 +83,7 @@ function handleTurn(event) {
             });
 
             // Only change the board space if it's empty 
-            if (board[idx] === ""){
+            if (board[idx] === "" && win === null){
                 board[idx] = turn;
                 
             // check your console logs to make sure it's working!
@@ -77,12 +96,10 @@ function handleTurn(event) {
             turn = turn === 'X' ? 'O' : 'X'; 
 
             win = getWinner();
-            } 
-            
-              
 
             render();
-
+            
+        } 
 
             console.log(win);
 
@@ -90,8 +107,7 @@ function handleTurn(event) {
 
            
 function getWinner() {
-                   
-                    let winner = null;
+                    winner = null;
 
                     winningCombos.forEach(function(combo, index) {
 
