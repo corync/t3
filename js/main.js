@@ -50,8 +50,8 @@ function render() {
         squares[index].textContent = mark;
         });
 
-        // changes message to let user know who's turn it is 
-        messages.textContent = `It's ${turn}'s turn!`;
+        // changes message to let user know who's turn it is or who won
+        messages.textContent = win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
         };
 
 function handleTurn(event) {
