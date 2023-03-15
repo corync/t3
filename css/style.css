@@ -48,6 +48,10 @@ h1{
     height:140px;
     width: 140px;
     border: 2px solid black;
+    font-size: 125px;
+    justify-content: center;
+    align-items: center;
+
 }
 
 
