@@ -63,10 +63,10 @@ function handleTurn(event) {
             return square === event.target;
             });
 
-     
+            // Only change the board space if it's empty 
+            if (board[idx] === ""){
                 board[idx] = turn;
-            
-            
+                
             // check your console logs to make sure it's working!
             console.log(board);
 
@@ -76,7 +76,10 @@ function handleTurn(event) {
 
             turn = turn === 'X' ? 'O' : 'X'; 
 
-            win = getWinner();  
+            win = getWinner();
+            } 
+            
+              
 
             render();
 
