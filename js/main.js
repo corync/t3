@@ -59,7 +59,10 @@ function handleTurn(event) {
             return square === event.target;
             });
 
-            board[idx] = turn;
+     
+                board[idx] = turn;
+            
+            
             // check your console logs to make sure it's working!
             console.log(board);
 
@@ -92,5 +95,8 @@ function getWinner() {
                             }
                     });
                     
-                    return winner;
+                    // add ternary statement to check if Tie 
+                    return (winner ? winner : // if winner not null, return winner
+                            board.includes('') ? // if board contains empty space 
+                            null : 'T'); // return null, else return tie 
                 };
