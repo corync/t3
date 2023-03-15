@@ -12,6 +12,9 @@ const squares = Array.from(document.querySelectorAll('#board div'));
 
 document.getElementById('board').addEventListener('click', handleTurn);
 
+
+const messages = document.querySelector('h2');
+
 /*----- functions -----*/
 
 function init() {
@@ -34,6 +37,9 @@ function render() {
         //this sets the text content of the square of the same position to the mark on the board.
         squares[index].textContent = mark;
         });
+
+        // changes message to let user know who's turn it is 
+        messages.textContent = `It's ${turn}'s turn!`;
         };
 
 function handleTurn(event) {
